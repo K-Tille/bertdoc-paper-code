@@ -1,0 +1,29 @@
+FROM python:3.10-slim
+
+ENV DEBIAN_FRONTEND=noninteractive
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    git \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY requirements_colbert.txt .
+RUN pip install --no-cache-dir -r requirements_colbert.txt
+
+COPY _complete_colbert_example.ipynb /app/
+COPY _split_train_test_data.ipynb /app/
+COPY backups/backup_16_39_09_02_2025.json /app/backups/
+
+COPY evaluation_area /app/evaluation_area/
+COPY test_splits/ /app/test_splits/
+COPY texts/ /app/texts/
+COPY texts_v2/ /app/texts_v2/
+COPY training_splits/ /app/training_splits/
+
+
+CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--port=7777", "--no-browser", "--allow-root"]
+
+# to start => docker run --gpus all -p 7777:7777 bertdoc_colbert:latest
+# look for a token for jupyter e.g. =>  http://127.0.0.1:7777/tree?token=2df1de0b1668d6811b09a56dedd70232953bc223b6c5764e
+# run _complete_colbert_example.ipynb

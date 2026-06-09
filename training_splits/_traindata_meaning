@@ -1,0 +1,2 @@
+training_splits/train_1_to_25_80p   => 80% of the first 25 questions
+training_splits/train_26_to_50_80p   => 80% of the second 25 questions
