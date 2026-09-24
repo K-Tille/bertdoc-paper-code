@@ -13,7 +13,7 @@ RUN pip install --no-cache-dir -r requirements_colbert.txt
 
 COPY _complete_colbert_example.ipynb /app/
 COPY _split_train_test_data.ipynb /app/
-COPY __statistik_roc_boxplot.ipynb /app/
+COPY __statistic_roc_boxplot.ipynb /app/
 COPY backups/backup_16_39_09_02_2025.json /app/backups/
 
 COPY evaluation_area /app/evaluation_area/

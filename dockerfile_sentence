@@ -12,7 +12,7 @@ RUN pip install --no-cache-dir -r requirements_sentence.txt
 COPY _complete_sentence_transformer_example.ipynb /app/
 COPY _split_train_test_data.ipynb /app/
 COPY backups/backup_16_39_09_02_2025.json /app/backups/
-COPY __statistik_roc_boxplot.ipynb /app/
+COPY __statistic_roc_boxplot.ipynb /app/
 
 COPY texts/ /app/texts/
 COPY texts_v2/ /app/texts_v2/
